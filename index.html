@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Staatsloterij</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+<div id="border">
+    <div id="container">
+
+        <img id="logo" src="Staatsloterij_logo_2.png" alt="logo">
+
+        <table id="countdown">
+            <tr>
+                <th colspan="4">De 10<sup>e</sup> kan het gebeuren...</th>
+            </tr>
+            <tr>
+                <td id="days" class="date"></td>
+                <td id="hours" class="date"></td>
+                <td id="minutes" class="date"></td>
+                <td id="seconds" class="date"></td>
+            </tr>
+            <tr>
+                <td class="date">dagen</td>
+                <td class="date">uren</td>
+                <td class="date">minuten</td>
+                <td class="date">seconden</td>
+            </tr>
+        </table>
+
+        <img id="water" src="waterline.png" alt="water">
+        <img onclick="functionOne()" id="fin" src="vin.png" alt="vin">
+        <p onclick="functionOne()" id="qm">?</p>
+        <p onclick="functionOne()" id="euro">€</p>
+        <img id="fish" src="vis.png" alt="vis">
+        <img id="eye" src="oog.png" alt="oog">
+
+        <div id="join">
+            <h2>Speel</h2>
+            <h2 id="highlight">online</h2>
+            <h2>mee!</h2>
+            <p>Elke trekking ruim 1 miljoen winnende lotnummers!</p>
+        </div>
+
+        <a href="https://staatsloterij.nederlandseloterij.nl/"><img id="cta" src="CTA.png" alt="cta"></a>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+<script>
+
+    let animation = gsap.timeline({repeatDelay: 2, ease: "none", repeat: -1});
+
+    animation
+        .to("#fin, #qm", {x: -1200, duration: 12})
+        .to("#fin", {scaleX: -1})
+        .to("#fin", {x: 0, duration: 12})
+        .to("#euro", {x: 1200, duration: 12}, "<")
+
+    gsap.to("#water", {rotate: 0.5, yoyoEase: true, duration: 2, repeat: -1})
+
+    function functionOne() {
+
+        gsap.from("#eye", {opacity: 1, duration: 0.8, repeatDelay: 4, repeat: -1})
+
+        let animationTwo = gsap.timeline()
+        animationTwo
+            .to("#fin, #qm, #euro", {y: 100, display: "none"})
+            .to("#water", {y: -280, ease: "power2.out", duration: 1.5}, "<")
+            .to("#fish, #eye", {rotate: 0, y: 410, delay: 1, duration: 1}, "<")
+            .to("#join", {y: -220, opacity: 1, duration: 0.5}, "<")
+            .to("#cta", {x: 450, duration: 0.5}, "<")
+            .to("#fish, #eye", {y: 400, x: -5, duration: 4, scale: 1.04, yoyoEase: true, repeat: -1})
+    }
+
+    let countDownDate = new Date("Sept 10, 2021 20:00:00").getTime()
+    let x = setInterval(function () {
+        let now = new Date().getTime()
+        let distance = countDownDate - now
+        let days = Math.floor(distance / 86400000)
+        let hours = Math.floor((distance % 86400000) / 3600000)
+        let minutes = Math.floor((distance % 3600000) / 60000)
+        let seconds = Math.floor((distance % 60000) / 1000)
+        document.getElementById("days").innerHTML = days.toLocaleString(undefined, {minimumIntegerDigits: 2})
+        document.getElementById("hours").innerHTML = hours.toLocaleString(undefined, {minimumIntegerDigits: 2})
+        document.getElementById("minutes").innerHTML = minutes.toLocaleString(undefined, {minimumIntegerDigits: 2})
+        document.getElementById("seconds").innerHTML = seconds.toLocaleString(undefined, {minimumIntegerDigits: 2})
+        if (distance < 0) {
+            clearInterval(x)
+            document.getElementById("countdown").innerHTML = "00"
+        }
+    }, 0)
+
+</script>
+</body>
+</html>

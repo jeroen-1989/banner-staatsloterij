@@ -1,0 +1,156 @@
+@font-face {
+    font-family: 'ars_maquetteblack';
+    src: url('arsmaquette-black-webfont.woff2') format('woff2'),
+    url('arsmaquette-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ars_maquetteregular';
+    src: url('arsmaquette-regular-webfont.woff2') format('woff2'),
+    url('arsmaquette-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ars_maquettebold';
+    src: url('arsmaquette-bold-webfont.woff2') format('woff2'),
+    url('arsmaquette-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#border, #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#border {
+    background: linear-gradient(to right, #f7d182, #a47734);
+    width: 970px;
+    height: 250px;
+}
+
+#container {
+    width: 960px;
+    height: 240px;
+    background-image: radial-gradient(circle at center, white 30%, #adcedb 100%);
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+}
+
+table {
+    background: linear-gradient(to right, #f7d182, #a47734);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+
+th {
+    font-family: ars_maquetteblack, sans-serif;
+    font-size: 18pt;
+}
+
+#days, #hours, #minutes, #seconds {
+    font-family: ars_maquetteblack, sans-serif;
+    font-size: 32pt;
+    padding: 0 20px;
+}
+
+.date {
+    font-family: ars_maquetteregular, sans-serif;
+    text-transform: uppercase;
+    font-size: 7pt;
+}
+
+#water {
+    position: absolute;
+    top: 190px;
+    transform: rotate(-0.5deg);
+}
+
+#fish {
+    height: 230px;
+    right: 100px;
+    top: -400px;
+    position: absolute;
+    transform: rotate(-90deg);
+}
+
+#eye {
+    top: -320px;
+    right: 360px;
+    position: absolute;
+    transform: rotate(-90deg);
+    opacity: 0;
+}
+
+#cta {
+    position: absolute;
+    left: -425px;
+    bottom: 15px;
+    cursor: pointer;
+    height: 50px;
+}
+
+#join {
+    font-family: ars_maquetteregular, sans-serif;
+    color: #003064;
+    position: absolute;
+    left: 30px;
+    bottom: -50px;
+    cursor: pointer;
+    height: 50px;
+    opacity: 0;
+}
+
+h2 {
+    display: inline-block;
+    font-size: 28pt;
+}
+
+#highlight {
+    font-family: ars_maquetteblack, sans-serif;
+}
+
+#logo {
+    width: 120px;
+}
+
+#fin, #qm, #euro {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    padding: 3em;
+    margin: -3em;
+    cursor: pointer;
+}
+
+#qm, #euro {
+    font-size: 32pt;
+    font-family: ars_maquetteblack, sans-serif;
+    color: #f8dec8;
+}
+
+#fin {
+    right: -160px;
+    cursor: pointer;
+    height: 80px;
+}
+
+#qm {
+    right: -135px;
+
+}
+#euro {
+    left: -155px;
+}
